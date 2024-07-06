@@ -1,0 +1,9 @@
+{
+    "name": "jesse/login-system",
+    "description": "a login system",
+    "type": "library",
+    "require": {
+        "league/oauth2-google": "^4.0",
+        "league/oauth2-facebook": "^2.2"
+    }
+}
