@@ -118,11 +118,11 @@ border: 2px solid white;
     box-shadow: 0 0 60px purple;
 }
 
-.menu{
+header{
     background-color: black;/* values- black*/
 color: #ffffff;/*values - hex*/
 color: rgb(255, 255, 255);
-padding: 20px;
+padding: 40px;
 display: flex;
 align-items: center;
 justify-content: space-between;
@@ -134,4 +134,17 @@ right: 0;
 left: 0;
 z-index: 1;
 transition: top 0.3s;
+
+}
+.menu a{
+    text-decoration: none; 
+  color: red;
+  padding:25px;
+  text-align: right;
+text-size-adjust: 35px;
+}
+.menu a:hover{
+    background-color: gold;
+   
+    cursor:pointer;
 }
