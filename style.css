@@ -178,29 +178,28 @@ text-size-adjust: 35px;
 .container{
     width: 100%;
     height: 100vh;
-    background-color: #ccc;
     display: flex;
-    align-items: center;
-    justify-content: center;
-border-radius: 6px;
-border: #333 3px solid ;
+    
 }
 .Announcement {
     position:absolute;
-    text-align: center;
+    text-align: left;
+    justify-content: left;
     font-size: 24px;
     display: inline-block;
-    border-radius: 50px;
-    width: 100%;
-    top: 50%;
-    left: 50%;
+    top: 40%;
+    left: 35%;
     transform: translate(-50%, -50%);
     z-index: 10;
 }
 
 .Announcement h1 {
-    font-size: 120px;
+    font-size: 65px;
     color: #ffffff;
+}
+.Announcement p{
+    color: #fff;
+
 }
 
 .Flooding {
@@ -266,3 +265,17 @@ border: #333 3px solid ;
     background-color: #3e8e41;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   }
+.report-flood{
+    align-items:right ;
+     right: 49%;
+     top: 50%;
+     display: inline;
+}
+#user-location{
+    align-items: center;
+    top:350%;
+    left: 55% ;
+scale: 70%;
+}
+
+

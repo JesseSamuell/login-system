@@ -1,12 +1,92 @@
+<link rel="stylesheet" href="style.css">
+
 <body>
-    <div class="container">
+    <style class="user-location">
+            #map {
+                height: 200px; /* Adjust the height as needed */
+                width: 120%;
+                left: 1px;
+                top:240px;
+                scale: 80%;
+                background-color: black;
+                padding: 35px;
+            }
+        </style>
+        <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+        <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     
+        <div id="output"></div>
+    
+        <script>
+            if (!navigator.geolocation) {
+                throw new Error("No geolocation available");
+            }
+    
+            function success(pos) {
+                const lat = pos.coords.latitude;
+                const lng = pos.coords.longitude;
+    
+                const markup = `
+                    <div id="map"></div>
+                    <a href="https://www.openstreetmap.org/#map=16/${lat}/${lng}">
+                        Your Current position: latitude: ${lat}, longitude: ${lng}
+                    </a>
+                `;
+    
+                document.getElementById('output').innerHTML = markup;
+    
+                const map = L.map('map').setView([lat, lng], 13);
+    
+                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                }).addTo(map);
+    
+                L.marker([lat, lng]).addTo(map)
+                    .bindPopup('You are here.')
+                    .openPopup();
+            }
+    
+            function error() {
+                console.error("Error occurred while fetching the location");
+            }
+    
+            const options = {};
+            navigator.geolocation.getCurrentPosition(success, error, options);
+        </script>
+        </div>
+
+    <div class="container">
+        <div>
+            <video autoplay loop muted plays-inline  class="Flooding">
+                <source src="images/floods.mp4" type="video/mp4">
+            </video>
+        </div>
 <section class="Announcement">
-    <h1>Report a flooding below</h1>
+    <h1>Report a flooding beside</h1>
     <p>We acknowledge that you are reporting a flooding and are both helping yourself and the community,<br>
     We ask you to refrain from reporting false flooding information to other users, if Your report 
-    is found to be false you shall be banned from the service
+    is found to be false you shall be banned from the service<br>
+    <b>Your Current is Mapped Below:</b>
 </p>
+
+</section>
+</div>
+<div class="report-flood">
+
+	<div class="rating-scale">
+		<input type="radio" id="minor" name="flood-scale" value="minor">
+		<label for="minor">Minor (less than 1 foot)</label>
+		<input type="radio" id="moderate" name="flood-scale" value="moderate">
+		<label for="moderate">Moderate (1-3 feet)</label>
+		<input type="radio" id="major" name="flood-scale" value="major">
+		<label for="major">Major (3-6 meters)</label>
+		<input type="radio" id="extreme" name="flood-scale" value="extreme">
+		<label for="extreme">Extreme (more than 6 metres)</label>
+	</div>
+    <section class="flood-button">
+        <a href="report.php">
+	<button>Submit Report</button>
+     </a> 
 
 </section>
 </div>
