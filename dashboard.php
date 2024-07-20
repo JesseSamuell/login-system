@@ -41,7 +41,7 @@ if (!isset($_SESSION['user'])) {
                     <p> We are dedicated to Forever pushing the frontier in early flood warning and reporting, to insure both you safety and peace of mind<br>
                     We value your trust in us and hope to fulfill all your needs </P> 
 </div>
-
+              <h2>Your Current Location:</h2>
 <style>
         #map {
             height: 400px; /* Adjust the height as needed */
@@ -89,6 +89,23 @@ if (!isset($_SESSION['user'])) {
         const options = {};
         navigator.geolocation.getCurrentPosition(success, error, options);
     </script>
+    </div>
+     <section class="call-action">
+        <h2>We are gathering your current location <br> and processing for any 
+            floods that are nearby, <br> if you wish to proceed kindly you can 'Report A Flooding'<br>event 
+             or press 'Flood assessment' below</h2>
+              <section class="report-button">
+             <a href="report.html">
+
+  <button>Report A Flooding</button>
+</a> <br>
+
+<a href="flood.html">
+
+<button>Flooding assessment</button>
+</a>
+
+    </section>
 </main>
 </body>
 

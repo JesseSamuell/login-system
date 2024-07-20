@@ -9,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if ($password === $confirm_password) {
         $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-        $stmt = $conn->prepare("INSERT INTO users (email, password) VALUES (?, ?)");
+        $stmt = $conn->prepare("INSERT INTO user (email, password) VALUES (?, ?)");
         $stmt->bind_param("ss", $email, $hashed_password);
         
         if ($stmt->execute()) {

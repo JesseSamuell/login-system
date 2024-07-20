@@ -100,12 +100,18 @@ border: 2px solid white;
    
 
 .Dashboard{
-    background-color: rgb(208, 129, 12);
-    border: 1px rgb(84, 64, 70);
-    border-radius: 5px;
-    padding:40px;
-    margin: 14%;
+    position: absolute;
+    left: 0;
+    top: 120px;
+    background-color: transparent;
+    border: 3px solid  rgb(40, 21, 27);
+    box-shadow: brown;
+    border-radius: 10px;
+    padding: 25px 280px 25px 25px ;
     text-align: center;
+    max-width: 500px;
+    align-items: center;
+   
 }
 
 .button{
@@ -140,7 +146,7 @@ transition: top 0.3s;
     text-decoration: none; 
   color: red;
   padding:25px;
-  text-align: right;
+  text-align: center;
 text-size-adjust: 35px;
 }
 .menu a:hover{
@@ -148,3 +154,115 @@ text-size-adjust: 35px;
    
     cursor:pointer;
 }
+.call-action{
+    position: absolute;
+    right: 0;
+    top:140px;
+    text-align: center;
+    padding: 12px 20px 20px 20px; 
+    background-color: #d34014; /* Optional: Add a background color */
+    border: 3px solid #ccc; /* Optional: Add a border */
+    border-radius: 15px;
+   
+}
+.report-button{
+    color: white;
+    background-color: black;
+    text-align: center;
+    padding: 7px;
+    margin: 10px;
+    border-radius:10px;
+    box-shadow: 0 0 10px purple;
+
+}
+.container{
+    width: 100%;
+    height: 100vh;
+    background-color: #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+border-radius: 6px;
+border: #333 3px solid ;
+}
+.Announcement {
+    position:absolute;
+    text-align: center;
+    font-size: 24px;
+    display: inline-block;
+    border-radius: 50px;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+}
+
+.Announcement h1 {
+    font-size: 120px;
+    color: #ffffff;
+}
+
+.Flooding {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+
+@media (min-aspect-ratio: 16/9){
+    .Flooding{
+        width:100%;
+        height: auto;
+
+
+    }
+}
+.rating-scale {
+    max-width: 400px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .rating-scale input[type="radio"] {
+    margin: 10px 20px 10px 0;
+  }
+  
+  .rating-scale label {
+    display: block;
+    margin-bottom: 20px;
+    font-size: 18px;
+    color: #333;
+  }
+  
+  .rating-scale label:hover {
+    color: #666;
+  }
+  
+  /* Button Styles */
+  
+  .flood-button {
+    background-color: #4CAF50;
+    color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+  }
+  
+  .flood-button:hover {
+    background-color: #3e8e41;
+  }
+  
+ .flood-button:active {
+    background-color: #3e8e41;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }

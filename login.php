@@ -17,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Prepare SQL statement to find user by email
-    $stmt = $conn->prepare("SELECT email, password FROM users WHERE email = ?");
+    $stmt = $conn->prepare("SELECT email, password FROM user WHERE email = ?");
     if (!$stmt) {
         die("Prepare statement failed: " . $conn->error);
     }
