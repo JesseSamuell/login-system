@@ -25,7 +25,7 @@ if (!isset($_SESSION['user'])) {
            </a>
 
 
-           <a href="flood.html"> <!--Flood assessment-->
+           <a href="flood.php"> <!--Flood assessment-->
             <i class="fa fa-home"></i>Flood Assessment
            </a>
          </ul>
@@ -100,7 +100,7 @@ if (!isset($_SESSION['user'])) {
   <button>Report A Flooding</button>
 </a> <br>
 
-<a href="flood.html">
+<a href="flood.php">
 
 <button>Flooding assessment</button>
 </a>

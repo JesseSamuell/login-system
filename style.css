@@ -165,15 +165,21 @@ text-size-adjust: 35px;
     border-radius: 15px;
    
 }
-.report-button{
+.report-button {
     color: white;
     background-color: black;
     text-align: center;
     padding: 7px;
     margin: 10px;
-    border-radius:10px;
+    border-radius: 10px;
     box-shadow: 0 0 10px purple;
+    transition: background-color 0.3s; /* add transition effect */
+}
 
+.report-button:hover {
+    background-color: #333; /* change background color on hover */
+    box-shadow: 0 0 10px purple, 0 0 10px rgba(255, 255, 255, 0.5); /* add additional shadow on hover */
+    cursor: pointer; /* change cursor to pointer on hover */
 }
 .container{
     width: 100%;
@@ -265,11 +271,28 @@ text-size-adjust: 35px;
     background-color: #3e8e41;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   }
+  .animated-h1 {
+    font-size: 3em;
+    color: #333;
+    animation: animate-h1 5s ease-in-out infinite;
+  }
+  
+  @keyframes animate-h1 {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
 .report-flood{
-    align-items:right ;
-     right: 49%;
+    align-items:center;
+     right: 39%;
      top: 50%;
-     display: inline;
+     display: inline-block;
 }
 #user-location{
     align-items: center;
