@@ -22,57 +22,65 @@
 
 <body>
     <style class="user-location">
-            #map {
-                height: 200px; /* Adjust the height as needed */
-                width: 120%;
-                left: 35px;
-                top:240px;
-                scale: 80%;
-                background-color: black;
-                padding: 85px;
-            }
-        </style>
-        <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-        <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-    
-        <div id="output"></div>
-    
-        <script>
-            if (!navigator.geolocation) {
-                throw new Error("No geolocation available");
-            }
-    
-            function success(pos) {
-                const lat = pos.coords.latitude;
-                const lng = pos.coords.longitude;
-    
-                const markup = `
-                    <div id="map"></div>
-                    <a href="https://www.openstreetmap.org/#map=16/${lat}/${lng}">
-                       
-                    </a>
-                `;
-    
-                document.getElementById('output').innerHTML = markup;
-    
-                const map = L.map('map').setView([lat, lng], 13);
-    
-                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                }).addTo(map);
-    
-                L.marker([lat, lng]).addTo(map)
-                    .bindPopup('You are here.')
-                    .openPopup();
-            }
-    
-            function error() {
-                console.error("Error occurred while fetching the location");
-            }
-    
-            const options = {};
-            navigator.geolocation.getCurrentPosition(success, error, options);
-        </script>
+        #map {
+            height: 200px; /* Adjust the height as needed */
+            width: 120%;
+            left: 35px;
+            top:240px;
+            scale: 80%;
+            background-color: black;
+            padding: 85px;
+        }
+    </style>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+    <div id="output"></div>
+
+    <script>
+        if (!navigator.geolocation) {
+            throw new Error("No geolocation available");
+        }
+
+        function success(pos) {
+            const lat = pos.coords.latitude;
+            const lng = pos.coords.longitude;
+
+            // Add the user's location to a hidden input field
+            const locationInput = document.createElement("input");
+            locationInput.type = "hidden";
+            locationInput.name = "location";
+            locationInput.value = `${lat}, ${lng}`;
+            document.querySelector("form").appendChild(locationInput);
+
+            const markup = `
+                <div id="map"></div>
+                <a href="https://www.openstreetmap.org/#map=16/${lat}/${lng}">
+                   
+                </a>
+            `;
+
+            document.getElementById('output').innerHTML = markup;
+
+            const map = L.map('map').setView([lat, lng], 13);
+
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            }).addTo(map);
+
+            L.marker([lat, lng]).addTo(map)
+               .bindPopup('You are here.')
+               .openPopup();
+        }
+
+        function error() {
+            console.error("Error occurred while fetching the location");
+        }
+
+        const options = {};
+        navigator.geolocation.getCurrentPosition(success, error, options);
+    </script>
+
         </div>
 
     <div class="container">
@@ -106,6 +114,7 @@
 		<label for="extreme">Extreme (more than 6 metres)</label>
 	</div>
     <textarea name="report_description" placeholder="Enter report description"></textarea>
+    <input type="hidden" id="location" name="location"> 
     <section class="flood-button">
        
         <button type="submit" name="report">Submit Report</button>
@@ -113,12 +122,6 @@
 
 </section>
  
-<?php if (isset($_SESSION['report_submitted'])): ?>
-<p style="color: green;">Report submitted successfully!</p>
-<?php elseif (isset($_SESSION['report_error'])): ?>
-<p style="color: red;">Error submitting report: <?php echo $_SESSION['report_error']; ?></p>
-<?php endif; ?>
 
-<?php unset($_SESSION['report_submitted']); unset($_SESSION['report_error']); ?>
 </div>
 </body>
