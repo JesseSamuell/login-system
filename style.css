@@ -128,7 +128,7 @@ header{
     background-color: black;/* values- black*/
 color: #ffffff;/*values - hex*/
 color: rgb(255, 255, 255);
-padding: 40px;
+padding: 20px;
 display: flex;
 align-items: center;
 justify-content: space-between;
@@ -145,9 +145,10 @@ transition: top 0.3s;
 .menu a{
     text-decoration: none; 
   color: red;
-  padding:25px;
+  margin: 10px;
+  padding:10px;
   text-align: center;
-text-size-adjust: 35px;
+font-size: 20px;
 }
 .menu a:hover{
     background-color: gold;
@@ -300,5 +301,24 @@ text-size-adjust: 35px;
     left: 55% ;
 scale: 70%;
 }
+.dashboard{
+  font-size: 2em;
+  color: #333;
+  animation:  animate-h1 3s ease-in-out infinite;
+}
+
+@keyframes animate-h1 {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+ 
+
 
 

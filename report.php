@@ -16,6 +16,7 @@ if (isset($_POST['report'])) {
 
     // Check if the report was inserted successfully
     if ($stmt->affected_rows > 0) {
+      echo "<script>alert('Report submitted successfully!');</script>";
         $_SESSION['report_submitted'] = true;
         header('Location: flood.php');
         exit;

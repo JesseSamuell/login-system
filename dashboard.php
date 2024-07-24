@@ -10,9 +10,15 @@ if (!isset($_SESSION['user'])) {
 <html lang="en">
 <head>
     <title> Home Page</title> 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="dashboard.css">
 </head>
     <body>
+    <div class="container">
+        <div>
+            <video autoplay loop muted plays-inline  class="Flooding">
+                <source src="images/floods-home.mp4" type="video/mp4">
+            </video>
+        </div>
         <header>
             <ul>
             <nav class="menu">
@@ -28,6 +34,10 @@ if (!isset($_SESSION['user'])) {
            <a href="flood.php"> <!--Flood assessment-->
             <i class="fa fa-home"></i>Flood Assessment
            </a>
+
+           <a href="Logout.php"> <!--Flood assessment-->
+            <i class="fa fa-home"></i>Logout
+           </a>
          </ul>
         </nav>
         </header>
@@ -36,7 +46,7 @@ if (!isset($_SESSION['user'])) {
     
         <section>
             <div class="Dashboard">
-                <h1> Welcome to your Home Page! <?php echo ''. $_SESSION['user']; ?> </h1> 
+                <h1 class="dashboard"> Welcome to your Home Page! <?php echo ''. $_SESSION['user']; ?> </h1> 
                 <div class="Message">
                     <p> We are dedicated to Forever pushing the frontier in early flood warning and reporting, to insure both you safety and peace of mind<br>
                     We value your trust in us and hope to fulfill all your needs </P> 
@@ -46,6 +56,8 @@ if (!isset($_SESSION['user'])) {
         #map {
             height: 400px; /* Adjust the height as needed */
             width: 100%;
+            scale: 85%;
+
         }
     </style>
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
