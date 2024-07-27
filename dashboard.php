@@ -213,7 +213,7 @@ mysqli_close($conn);
         <li><a href="#home">Home</a></li>
     </div>
   <div class="footer-bottom">
-    <p>&copy; 2024 Your Company Name. All rights reserved.</p>
+    <p>&copy; 2024 FloodAlt All rights reserved.</p>
   </div>
 </footer>
 

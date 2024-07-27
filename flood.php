@@ -91,3 +91,20 @@ mysqli_close($conn);
     </div>
 </div>
                 </body>
+
+                
+                <footer class="footer-section">
+  <div class="footer-content">
+    <div class="footer-left">
+      <h4>About Us</h4>
+      <p>We are dedicated to providing the best services and products to our customers. </p>
+    </div>
+    <div class="footer-middle">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="#home">Home</a></li>
+    </div>
+  <div class="footer-bottom">
+    <p>&copy; 2024 FloodAlt All rights reserved.</p>
+  </div>
+</footer>

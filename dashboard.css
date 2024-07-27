@@ -6,6 +6,8 @@ background-position: center;
     align-items: center;
     height: 100vh;
     margin: 0;
+    position: relative;
+    padding-bottom: 100px;
 }
 .Dashboard {
     position: absolute;
@@ -147,7 +149,7 @@ font-size: 20px;
   bottom: 1;
   right: 0;
   max-width: 700px;
-  margin: 0;
+  margin: 40px ;
   padding: 20px;
   background-color: rgba(255, 255, 255, 0.7);
   border: 1px solid #ddd;
@@ -266,26 +268,30 @@ h2 {
 .carousel-control-next-icon {
   left: 40px;
 }
-
+main{
+margin: 0 auto;
+min-height: auto;
+}
 
 
 /* Footer Section Styles */
 .footer-section {
-  position: fixed; 
+  position: absolute; 
   bottom: 0;
   left: 0;
   right: 0;
   width: 100%; 
   background-color: #333;
   color: #fff;
-  padding: 2px 2px;
+  padding: 10px; /* reduced padding to make the footer smaller */
+  font-size: 12px; /* reduced font size to make the footer smaller */
   z-index: 1; /* Add this to ensure the footer is on top of other elements */
 }
 
 .footer-content {
   display: flex;
   justify-content: space-between;
-  padding: 0 20px;
+  padding: 0 5px; /* reduced padding to make the footer smaller */
 }
 
 .footer-left, .footer-middle, .footer-right {
@@ -298,7 +304,7 @@ h2 {
 }
 
 .footer-middle ul li {
-  margin: 5px 0;
+  margin: 2px 0; /* reduced margin to make the footer smaller */
 }
 
 .footer-middle ul li a {
@@ -308,11 +314,12 @@ h2 {
 
 .footer-bottom {
   text-align: center;
-  padding: 10px 10px;
+  padding: 5px; /* reduced padding to make the footer smaller */
   background-color: #222;
+  font-size: 7px; /* reduced font size to make the footer smaller */
 }
 
 /* Add this to push the main content up to make room for the footer */
 body {
-  margin-bottom: 10px; /* adjust the value to match the height of your footer */
+  margin-bottom: 20px; /* adjust the value to match the height of your footer */
 }

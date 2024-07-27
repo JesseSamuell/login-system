@@ -17,9 +17,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Prepare SQL statement to find user by email
-    $stmt = $conn->prepare("SELECT email, password FROM user WHERE email = ?");
+    $stmt = $conn->prepare("SELECT email, password FROM user WHERE email =?");
     if (!$stmt) {
-        die("Prepare statement failed: " . $conn->error);
+        die("Prepare statement failed: ". $conn->error);
     }
 
     $stmt->bind_param("s", $email);
@@ -34,7 +34,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Verify the password
         if (password_verify($password, $db_password)) {
             $_SESSION['user'] = $db_email;
-            header('Location: dashboard.php?msg=login');
+
+            // Check if the username contains the word "admin"
+            if (strpos($db_email, 'admin')!== false) {
+                $_SESSION['is_admin'] = true;
+                header('Location: admin_dashboard.php?msg=login');
+            } else {
+                $_SESSION['is_admin'] = false;
+                header('Location: dashboard.php?msg=login');
+            }
             exit();
         } else {
             die("Invalid email or password.");
@@ -50,10 +58,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <html>
 <body>
-<?php if(isset($_GET['msg']) && $_GET['msg'] == 'login'): ?>
+<?php if(isset($_GET['msg']) && $_GET['msg'] == 'login'):?>
     <script type="text/javascript">
         alert('Login Successful, Welcome back!');
     </script>
-<?php endif; ?>
+<?php endif;?>
 </body>
 </html>

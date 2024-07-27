@@ -1,0 +1,91 @@
+/* Global Styles */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    background-color: #000; /* Black background */
+    font-family: Arial, sans-serif;
+    color: #fff; /* White text */
+  }
+  
+  /* Admin Dashboard Styles */
+  
+  .admin-dashboard {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #333; /* Dark gray background */
+    border: 1px solid #444; /* Dark gray border */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  }
+  
+  .admin-dashboard h1 {
+    margin-top: 0;
+    font-size: 24px;
+    font-weight: bold;
+    color: #fff;
+  }
+  
+  /* Table Styles */
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+  
+  th, td {
+    border: 1px solid #444;
+    padding: 10px;
+    text-align: left;
+  }
+  
+  th {
+    background-color: #444; /* Dark gray background */
+    color: #fff; /* White text */
+  }
+  
+  td {
+    background-color: #333; /* Dark gray background */
+  }
+  
+  td:nth-child(even) {
+    background-color: #292929; /* Darker gray background */
+  }
+  
+  /* Section Styles */
+  
+  .section {
+    margin-bottom: 40px;
+  }
+  
+  .section h2 {
+    margin-top: 0;
+    font-size: 18px;
+    font-weight: bold;
+    color: #fff;
+  }
+  
+  .section table {
+    margin-top: 10px;
+  }
+  
+  /* Alert Button Styles */
+  
+  .alert-button {
+    background-color: #ff0000; /* Red background */
+    color: #fff; /* White text */
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .alert-button:hover {
+    background-color: #cc0000; /* Darker red background */
+  }
