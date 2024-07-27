@@ -34,7 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Verify the password
         if (password_verify($password, $db_password)) {
             $_SESSION['user'] = $db_email;
-            header('Location: dashboard.php');
+            header('Location: dashboard.php?msg=login');
             exit();
         } else {
             die("Invalid email or password.");
@@ -47,3 +47,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $conn->close();
 }
 ?>
+
+<html>
+<body>
+<?php if(isset($_GET['msg']) && $_GET['msg'] == 'login'): ?>
+    <script type="text/javascript">
+        alert('Login Successful, Welcome back!');
+    </script>
+<?php endif; ?>
+</body>
+</html>

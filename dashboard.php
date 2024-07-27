@@ -46,17 +46,24 @@ if (!isset($_SESSION['user'])) {
     
         <section>
             <div class="Dashboard">
+                <br>
+                <br>
+                <br>
+                <br>
                 <h1 class="dashboard"> Welcome to your Home Page! <?php echo ''. $_SESSION['user']; ?> </h1> 
                 <div class="Message">
-                    <p> We are dedicated to Forever pushing the frontier in early flood warning and reporting, to insure both you safety and peace of mind<br>
-                    We value your trust in us and hope to fulfill all your needs </P> 
+                    <p> We are dedicated to Forever pushing the frontier in early flood warning and reporting,<br>
+                     to insure both you safety and peace of mind<br>
+                   
 </div>
               <h2>Your Current Location:</h2>
 <style>
         #map {
-            height: 400px; /* Adjust the height as needed */
-            width: 100%;
-            scale: 85%;
+            height: 250px; /* Adjust the height as needed */
+            width: 120%;
+            scale: 65%;
+            top: 10px;
+            
 
         }
     </style>
@@ -75,9 +82,9 @@ if (!isset($_SESSION['user'])) {
             const lng = pos.coords.longitude;
 
             const markup = `
-                <div id="map"></div>
+                  <div id="map"></div>
                 <a href="https://www.openstreetmap.org/#map=16/${lat}/${lng}">
-                    Your Current position: latitude: ${lat}, longitude: ${lng}
+                 Your Current position:
                 </a>
             `;
 
@@ -104,8 +111,8 @@ if (!isset($_SESSION['user'])) {
     </div>
      <section class="call-action">
         <h2>We are gathering your current location <br> and processing for any 
-            floods that are nearby, <br> if you wish to proceed kindly you can 'Report A Flooding'<br>event 
-             or press 'Flood assessment' below</h2>
+            floods that are nearby, <br> if you wish to proceed, you can 'Report A Flooding'<br>event 
+             or press 'Flood assessment' beside</h2>
               <section class="report-button">
              <a href="report.html">
 
@@ -118,8 +125,98 @@ if (!isset($_SESSION['user'])) {
 </a>
 
     </section>
+    </section>
+
+    <section class="report-slides">
+    <?php
+// Connect to the database
+$conn = mysqli_connect("localhost", "root", "", "login_system");
+
+// Check connection
+if (!$conn) {
+    die("Connection failed: ". mysqli_connect_error());
+}
+
+// Query the reports table
+$sql = "SELECT * FROM reports";
+$result = mysqli_query($conn, $sql);
+
+// Check if there are any results
+if (mysqli_num_rows($result) > 0) {
+    // Loop through the results and store them in an array
+    $reports = array();
+    while ($row = mysqli_fetch_assoc($result)) {
+        $reports[] = $row;
+    }
+} else {
+    echo "No reports found";
+}
+
+// Close the database connection
+mysqli_close($conn);
+?>
+
+<h1>Flood Reports From Users</h1>
+    <div id="carouselExample" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <?php foreach ($reports as $key => $report) {?>
+            <li data-target="#carouselExample" data-slide-to="<?php echo $key;?>"<?php echo $key == 0? 'lass="active"' : '';?>></li>
+            <?php }?>
+        </ol>
+        <div class="carousel-inner">
+            <?php foreach ($reports as $key => $report) {?>
+            <div class="carousel-item <?php echo $key == 0? 'active' : '';?>">
+                <h2><?php echo $report['flood_scale'];?></h2>
+                <p>Location: <?php echo $report['location'];?></p>
+                <p><?php echo $report['report_description'];?></p>
+                <?php if (!empty($report['image'])) {?>
+                <img src="<?php echo $report['image'];?>" alt="<?php echo $report['flood_scale'];?>">
+                <?php }?>
+            </div>
+            <?php }?>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExample" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExample" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+</div>
+                </body>
+
+  
+
+
+    </section>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script>
+    var carousel = document.getElementById('carouselExample');
+    carousel.carouselInterval = setInterval(function() {
+        carousel.nextElementSibling.click();
+    }, 3000);
+</script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 </main>
 </body>
+<footer class="footer-section">
+  <div class="footer-content">
+    <div class="footer-left">
+      <h4>About Us</h4>
+      <p>We are dedicated to providing the best services and products to our customers. </p>
+    </div>
+    <div class="footer-middle">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="#home">Home</a></li>
+    </div>
+  <div class="footer-bottom">
+    <p>&copy; 2024 Your Company Name. All rights reserved.</p>
+  </div>
+</footer>
+
 
 
 

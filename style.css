@@ -274,7 +274,7 @@ font-size: 20px;
   }
   .animated-h1 {
     font-size: 3em;
-    color: #333;
+    color: #312d2d;
     animation: animate-h1 5s ease-in-out infinite;
   }
   

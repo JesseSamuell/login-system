@@ -14,7 +14,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         
         if ($stmt->execute()) {
             $_SESSION['user'] = $email;
-            header('Location: dashboard.php');
+            header('Location: dashboard.php?msg=welcome');
+            exit; // Add this to prevent further execution
         } else {
             echo "Error: " . $stmt->error;
         }
@@ -25,3 +26,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 }
 ?>
+
+<html>
+<body>
+<?php if(isset($_GET['msg']) && $_GET['msg'] == 'welcome'): ?>
+    <script type="text/javascript">
+        alert('You Have successfully Registered!');
+    </script>
+<?php endif; ?>
+</body>
+</html>

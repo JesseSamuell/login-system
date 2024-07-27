@@ -10,14 +10,15 @@ background-position: center;
 .Dashboard {
     position: absolute;
     left: 0; /* kept it on the left */
-    top: 120px;
-    background-color: rgba(255, 255, 255, 0.9); /* made it slightly transparent */
+    top: 90px;
+    bottom:30px;
+    background-color: rgba(255, 255, 255, 0.5); /* made it slightly transparent */
     border: 3px solid rgb(40, 21, 27);
-    box-shadow: 0px 0px 10px brown; /* added shadow offset and blur radius */
-    border-radius: 10px;
-    padding: 20px; /* simplified padding */
+    box-shadow: 0px 0px 13px brown; /* added shadow offset and blur radius */
+    border-radius: 15px;
+    padding: 70px; /* simplified padding */
     text-align: center;
-    width: 300px; /* set a fixed width */
+    width: 280px; /* set a fixed width */
     display: flex; /* added to use align-items */
     align-items: center;
     justify-content: center; /* added to center content horizontally */
@@ -42,6 +43,7 @@ padding: 20px;
 display: flex;
 align-items: center;
 justify-content: space-between;
+border-radius: 9px;
 
 /*fix our header and prevent scrolling */ 
 position: fixed;
@@ -65,17 +67,29 @@ font-size: 20px;
    
     cursor:pointer;
 }
-.call-action{
-    position: absolute;
-    right: 0;
-    top:140px;
-    text-align: center;
-    padding: 12px 20px 20px 20px; 
-    background-color: #d34014; /* Optional: Add a background color */
-    border: 3px solid #ccc; /* Optional: Add a border */
-    border-radius: 15px;
-   
+.call-action {
+  position: absolute;
+  right: 0;
+  top: 140px;
+  text-align: center;
+  padding: 12px 20px 20px 20px;
+  background-color: #de8e0c; /* Optional: Add a background color */
+  border: 3px solid #ccc; /* Optional: Add a border */
+  border-radius: 15px;
+  animation: fadeIn 2s; /* Add animation */
 }
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+    
+   
+
 .report-button {
     color: white;
     background-color: black;
@@ -83,7 +97,7 @@ font-size: 20px;
     padding: 7px;
     margin: 10px;
     border-radius: 10px;
-    box-shadow: 0 0 10px purple;
+    box-shadow: 0 5px 7px purple;
     transition: background-color 0.3s; /* add transition effect */
 }
 
@@ -104,7 +118,7 @@ font-size: 20px;
       transform: translateY(0);
     }
     50% {
-      transform: translateY(-10px);
+      transform: translateY(-5px);
     }
     100% {
       transform: translateY(0);
@@ -128,4 +142,177 @@ font-size: 20px;
 
     }
 }
-   
+.report-slides {
+  position: absolute;
+  bottom: 1;
+  right: 0;
+  max-width: 700px;
+  margin: 0;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.7);
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.carousel {
+  position: relative;
+}
+
+.carousel-inner {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.carousel-item {
+  position: relative;
+  display: none;
+  float: left;
+  width: 100%;
+  margin-right: -100%;
+  -webkit-transition: 0.6s ease-in-out left;
+  transition: 0.6s ease-in-out left;
+}
+
+.carousel-item.active {
+  display: block;
+}
+
+.carousel-control-prev:hover,.carousel-control-next:hover {
+  color: #23527c;
+  text-decoration: none;
+  opacity: 0.9;
+}
+
+.carousel-control-prev-icon,.carousel-control-next-icon {
+  position: absolute;
+  top: 50%;
+  z-index: 1;
+  display: inline-block;
+  margin-top: -10px;
+}
+
+.carousel-control-prev-icon {
+  left: 90px;
+}
+
+.carousel-control-next-icon {
+  right: 40px;
+}
+
+.carousel-indicators {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  z-index: 1;
+  width: 60%;
+  padding-left: 0;
+  margin-left: -30%;
+  text-align: center;
+  list-style: none;
+}
+
+.carousel-indicators li {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin: 1px;
+  text-indent: -999px;
+  cursor: pointer;
+  background-color: #ccc;
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  border-radius: 10px;
+}
+
+.carousel-indicators li.active {
+  width: 12px;
+  height: 12px;
+  margin: 0;
+  background-color: #337ab7;
+}
+
+.carousel-indicators li:hover {
+  background-color: #23527c;
+}
+
+h1 {
+  margin-top: 0;
+}
+
+h2 {
+  margin-top: 0;
+  font-weight: bold;
+}
+
+.carousel-item img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px 10px 0 0;
+}
+
+.carousel-control-prev,.carousel-control-next {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.carousel-control-prev-icon {
+  left: 10px;
+}
+
+.carousel-control-next-icon {
+  left: 40px;
+}
+
+
+
+/* Footer Section Styles */
+.footer-section {
+  position: fixed; 
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%; 
+  background-color: #333;
+  color: #fff;
+  padding: 2px 2px;
+  z-index: 1; /* Add this to ensure the footer is on top of other elements */
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+
+.footer-left, .footer-middle, .footer-right {
+  width: 30%;
+}
+
+.footer-middle ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-middle ul li {
+  margin: 5px 0;
+}
+
+.footer-middle ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding: 10px 10px;
+  background-color: #222;
+}
+
+/* Add this to push the main content up to make room for the footer */
+body {
+  margin-bottom: 10px; /* adjust the value to match the height of your footer */
+}
